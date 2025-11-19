@@ -7,9 +7,11 @@ interface ProjectCardProps {
   learnMore?: string;
   image?: string;
   award?: string;
+  technologies?: string[];   
 }
 
-export default function ProjectCard({ title, description, demo, github, image, award }: ProjectCardProps) {
+
+export default function ProjectCard({ title, description, demo, github, image, award, technologies }: ProjectCardProps) {
   return (
     <div className="relative group">
 
@@ -81,6 +83,22 @@ export default function ProjectCard({ title, description, demo, github, image, a
                 </a>
             )}
             </div>
+           {technologies && (
+            <div className="flex flex-wrap gap-2 mt-4">
+                {technologies.map((tech) => (
+                <span
+                    key={tech}
+                    className="px-3 py-1 text-xs font-medium 
+                            bg-gray-100 text-gray-700 
+                            rounded-full border border-gray-200
+                            shadow-sm text-primary font-bold"
+                >
+                    {tech}
+                </span>
+                ))}
+            </div>
+            )}
+
 
       </div>
     </div>
