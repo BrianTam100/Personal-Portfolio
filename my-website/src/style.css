@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563eb; /* Example custom color */
+  --color-secondary: #33FF57;
+  --color-danger: #FF3333;
+
+  /* You can also define shades for a custom color */
+  --color-brand-light: #F0F9FF;
+  --color-brand: #007BFF;
+  --color-brand-dark: #0056B3;
+}
+
+@keyframes movingBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-movingBorder {
+  animation: movingBorder 3s linear infinite;
+}
