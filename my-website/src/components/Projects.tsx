@@ -8,15 +8,17 @@ export default function Projects() {
     
       <div className="grid md:grid-cols-2 gap-6">
         <ProjectCard
-            title="ByteBite"
-            award="Best Data Science Hack — HackRPI 2025"
-            description="..."
-            image={bytebite}
-            demo="https://bytebites.tech"
-            github="https://github.com/TheByteGuy/bytebite"
-            technologies={["React", "JavaScript", "Node.js", "Tailwind", "Google Gemini"]}
-            />
-
+          title="ByteBite"
+          description="ByteBite is an AI-powered dining recommendation platform created at HackRPI 2025.
+          It solves a real problem at RPI by normalizing Sodexo's inconsistent JSON menu feeds and turning
+          them into clean, structured data. Leveraging Google Gemini, ByteBite ranks meals for users based 
+          on their dietary preferences and allergens in real time."
+          demo="https://bytebites.tech"
+          github="https://github.com/TheByteGuy/bytebite"
+          image = {bytebite}
+          award="Best Data Science Hack – HackRPI 2025"
+          technologies={["React", "JavaScript", "Node.js", "Google Gemini"]}
+        />
 
         <ProjectCard
           title="Movie Recommendation App"
