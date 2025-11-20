@@ -1,106 +1,93 @@
-import "../style.css"
 interface ProjectCardProps {
   title: string;
   description: string;
   demo?: string;
   github?: string;
-  learnMore?: string;
   image?: string;
   award?: string;
-  technologies?: string[];   
 }
 
-
-export default function ProjectCard({ title, description, demo, github, image, award, technologies }: ProjectCardProps) {
+export default function ProjectCard({
+  title,
+  description,
+  demo,
+  github,
+  image,
+  award,
+}: ProjectCardProps) {
   return (
-    <div className="relative group">
+    <section className="w-full py-16">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-      {/* 🔥 MOVING BORDER EFFECT — ONLY IF AWARD EXISTS */}
-     {award && (
-        <div
-            className="
-            absolute -inset-[6px]     /* farther out */
-            rounded-[22px]            /* bigger curve for top visibility */
-            p-[3px]                   /* thicker border ring */
-            pointer-events-none
-            opacity-0 group-hover:opacity-100
-            transition-opacity duration-500
-            bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-500
-            bg-[length:300%_300%]
-            animate-movingBorder
-            blur-[1px]                /* optional slight blur for visibility */
-            "
-        />
-        )}
-
-
+      {/* LEFT — IMAGE */}
+  <div className="flex justify-center items-start">
+    <img
+      src={image}
+      alt={title}
+      className="
+        max-w-2xl 
+        w-full 
+        h-[360px] 
+        object-contain 
+        rounded-2xl 
+        shadow-sm 
+        border border-gray-200
+      "
+    />
+  </div>
 
 
-      {/* Actual Card */}
-      <div className="relative p-5 bg-white rounded-xl shadow border border-gray-200 
-                      transition-all group-hover:shadow-xl group-hover:-translate-y-1">
+    {/* RIGHT — TEXT CONTENT */}
+    <div className="flex flex-col justify-start">
 
-        <h4 className="text-xl font-bold mb-2 text-primary">{title}</h4>
+      <h2 className="text-4xl font-bold mb-3 text-primary">{title}</h2>
 
         {award && (
-          <span className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 
-                            text-sm font-semibold rounded-full 
-                            bg-gradient-to-r from-blue-600 to-indigo-600 
-                            text-white shadow-lg shadow-blue-500/30">
-            🏆 {award}
-          </span>
+      <span
+        className="
+          inline-flex items-center gap-2 w-fit mb-6 px-5 py-2
+          text-sm font-medium rounded-full
+          bg-gradient-to-r from-purple-500/20 to-blue-500/20
+          text-purple-900
+          border border-purple-300/30
+          shadow-[0_2px_10px_rgba(0,0,0,0.06)]
+          backdrop-blur-sm
+        "
+      >
+        🏆 {award}
+      </span>
+    )}
+
+
+      <p className="text-gray-600 text-lg leading-relaxed mb-8">
+        {description}
+      </p>
+
+      <div className="flex gap-4 mb-8">
+        {demo && (
+          <a
+            href={demo}
+            className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition"
+          >
+            Live Demo
+          </a>
         )}
-
-        {image && (
-          <img
-            src={image}
-            alt={title}
-            className="w-full object-cover rounded-lg mb-4 shadow-sm border border-gray-200"
-          />
+        {github && (
+          <a
+            href={github}
+            className="px-6 py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+          >
+            GitHub
+          </a>
         )}
-
-        <p className="text-gray-700 mb-3">{description}</p>
-            <div className="flex gap-3 text-sm mt-4">
-            {demo && (
-                <a
-                href={demo}
-                target="_blank"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium
-                            hover:bg-blue-700 transition-all duration-200 shadow-sm hover:-translate-y-0.5"
-                >
-                Live Demo
-                </a>
-            )}
-
-            {github && (
-                <a
-                href={github}
-                target="_blank"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium
-                            hover:bg-gray-100 transition-all duration-200 shadow-sm hover:-translate-y-0.5"
-                >
-                GitHub
-                </a>
-            )}
-            </div>
-           {technologies && (
-            <div className="flex flex-wrap gap-2 mt-4">
-                {technologies.map((tech) => (
-                <span
-                    key={tech}
-                    className="px-3 py-1 text-xs font-medium 
-                            bg-gray-100 text-gray-700 
-                            rounded-full border border-gray-200
-                            shadow-sm text-primary font-bold"
-                >
-                    {tech}
-                </span>
-                ))}
-            </div>
-            )}
-
-
       </div>
+
+
+
     </div>
+
+  </div>
+</section>
+
   );
 }

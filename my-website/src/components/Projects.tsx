@@ -6,7 +6,7 @@ export default function Projects() {
     <div>
       <h3 className="text-3xl font-bold mb-6">Projects</h3>
     
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="flex flex-col gap-24">
         <ProjectCard
           title="ByteBite"
           description="ByteBite is an AI-powered dining recommendation platform created at HackRPI 2025.
@@ -17,7 +17,6 @@ export default function Projects() {
           github="https://github.com/TheByteGuy/bytebite"
           image = {bytebite}
           award="Best Data Science Hack – HackRPI 2025"
-          technologies={["React", "JavaScript", "Node.js", "Google Gemini"]}
         />
 
         <ProjectCard
