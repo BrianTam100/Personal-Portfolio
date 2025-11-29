@@ -27,11 +27,12 @@ export default function ProjectCard({
       className="
         max-w-2xl 
         w-full 
-        h-[360px] 
+        max-h-[360px] 
         object-contain 
         rounded-2xl 
         shadow-sm 
         border border-gray-200
+        bg-white
       "
     />
   </div>
