@@ -1,29 +1,22 @@
 
+interface HeroProps {
+  motionPaused: boolean;
+  onToggleMotion: () => void;
+}
 
-
-export default function Hero() {
+export default function Hero({}: HeroProps) {
   return (
-    <div className="text-center">
-      <h2 className="text-4xl font-bold mb-4 text-primary">Hi, I'm Brian 👋</h2>
-      <p className="text-lg text-gray-700 max-w-xl mx-auto">
-        I'm a full-stack developer and RPI CS student who builds AI-powered apps,
-        intuitive UIs, and open-source software.
-      </p>
-
-      <div className="mt-8 flex justify-center gap-4">
-        <a
-          href="/resume.pdf"
-          className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-        >
-          Resume
-        </a>
-        <a
-          href="https://github.com/BrianTam100"
-          className="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-100"
-        >
-          GitHub
-        </a>
+    <div className="hero-layout">
+      <div className="hero-main">
+        <p className="eyebrow availability"><span /> Open to Summer 2027 internships</p>
+        <h1>Hi, I’m<br /><span className="serif-word">Brian Tam.</span></h1>
+        <p className="hero-description">I’m a CS and IT & Web Science student at RPI, concentrating in AI/ML and graduating in 2028. I build web apps, work on open-source projects and help teach CS1. In Summer 2026, I built internal tools at Isaac Morris Limited.</p>
+        <div className="hero-actions">
+          <a className="button button-dark" href="#projects">See my projects <span aria-hidden="true">↘</span></a>
+          <a className="text-link" href={`${import.meta.env.BASE_URL}resume.pdf`} target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
+      <div className="hero-bottom"><span>Brooklyn, NY · RPI ’28</span><a href="https://github.com/BrianTam100" target="_blank" rel="noreferrer">Find me on GitHub <span aria-hidden="true">↗</span></a></div>
     </div>
   );
 }

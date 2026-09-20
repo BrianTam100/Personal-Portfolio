@@ -1,94 +1,48 @@
 interface ProjectCardProps {
   title: string;
   description: string;
+  category: string;
+  number: string;
+  technologies: string[];
   demo?: string;
   github?: string;
   image?: string;
   award?: string;
+  dates?: string;
+  highlights?: string[];
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  demo,
-  github,
-  image,
-  award,
-}: ProjectCardProps) {
+export default function ProjectCard({ title, description, category, number, technologies, demo, github, image, award, dates, highlights }: ProjectCardProps) {
   return (
-    <section className="w-full py-16">
-  <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-      {/* LEFT — IMAGE */}
-  <div className="flex justify-center items-start">
-    <img
-      src={image}
-      alt={title}
-      className="
-        max-w-2xl 
-        w-full 
-        max-h-[360px] 
-        object-contain 
-        rounded-2xl 
-        shadow-sm 
-        border border-gray-200
-        bg-white
-      "
-    />
-  </div>
-
-
-    {/* RIGHT — TEXT CONTENT */}
-    <div className="flex flex-col justify-start">
-
-      <h2 className="text-4xl font-bold mb-3 text-primary">{title}</h2>
-
-        {award && (
-      <span
-        className="
-          inline-flex items-center gap-2 w-fit mb-6 px-5 py-2
-          text-sm font-medium rounded-full
-          bg-gradient-to-r from-purple-500/20 to-blue-500/20
-          text-purple-900
-          border border-purple-300/30
-          shadow-[0_2px_10px_rgba(0,0,0,0.06)]
-          backdrop-blur-sm
-        "
-      >
-        🏆 {award}
-      </span>
-    )}
-
-
-      <p className="text-gray-600 text-lg leading-relaxed mb-8">
-        {description}
-      </p>
-
-      <div className="flex gap-4 mb-8">
-        {demo && (
-          <a
-            href={demo}
-            className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition"
-          >
-            Live Demo
-          </a>
-        )}
-        {github && (
-          <a
-            href={github}
-            className="px-6 py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
-          >
-            GitHub
-          </a>
+    <article className={`project-card ${award ? 'project-card-awarded' : ''}`}>
+      {award && <div className="award-banner">
+        <div className="award-emblem" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3h8v6a4 4 0 0 1-8 0V3Z" /><path d="M8 5H4v2a4 4 0 0 0 4 4M16 5h4v2a4 4 0 0 1-4 4M12 13v5M8 21h8M9 18h6v3H9z" /></svg>
+        </div>
+        <div className="award-copy"><span className="award-label">Hackathon winner</span><strong>{award.split(' · ')[0]}</strong></div>
+        <span className="award-event">{award.split(' · ')[1]}</span>
+      </div>}
+      <div className="project-visual">
+        {image ? <img src={image} alt={`${title} project preview`} loading="lazy" decoding="async" /> : (
+          <div className="project-overview">
+            <p className="eyebrow">HenHacks 2026</p>
+            <p className="project-overview-title">TrailMate<span>Campus discovery,<br />personalized.</span></p>
+            <dl><div><dt>Rank activities</dt><dd>Snowflake SQL + weighted scoring</dd></div><div><dt>Generate routes</dt><dd>Natural-language prompts + Gemini</dd></div></dl>
+          </div>
         )}
       </div>
-
-
-
-    </div>
-
-  </div>
-</section>
-
+      <div className="project-content">
+        <p className="project-kicker"><span className="project-number">{number}</span><span>{category}</span></p>
+        <h3>{title}</h3>
+        {dates && <p className="project-dates">{dates}</p>}
+        <p className="project-description">{description}</p>
+        {highlights && <ul className="detail-list project-highlights">{highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>}
+        <ul className="tech-tags" aria-label={`${title} technologies`}>{technologies.map(technology => <li key={technology}>{technology}</li>)}</ul>
+        <div className="project-links">
+          {demo && <a href={demo} target="_blank" rel="noreferrer" aria-label={`View ${title} live site`}>Live site <span aria-hidden="true">↗</span></a>}
+          {github && <a href={github} target="_blank" rel="noreferrer" aria-label={`View ${title} on GitHub`}>GitHub <span aria-hidden="true">↗</span></a>}
+        </div>
+      </div>
+    </article>
   );
 }

@@ -1,7 +1,3 @@
 export default function Footer() {
-  return (
-    <footer className="py-6 text-center text-gray-600 mt-16">
-      © {new Date().getFullYear()} Brian Tam — Built with React & Tailwind CSS
-    </footer>
-  );
+  return <footer className="container footer"><span>© {new Date().getFullYear()} Brian Tam</span><span>React + TypeScript</span><a href="#home">Back to top ↑</a></footer>;
 }
