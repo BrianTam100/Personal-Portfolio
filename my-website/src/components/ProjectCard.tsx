@@ -10,9 +10,14 @@ interface ProjectCardProps {
   award?: string;
   dates?: string;
   highlights?: string[];
+  overview?: {
+    event: string;
+    tagline: string;
+    features: { title: string; detail: string }[];
+  };
 }
 
-export default function ProjectCard({ title, description, category, number, technologies, demo, github, image, award, dates, highlights }: ProjectCardProps) {
+export default function ProjectCard({ title, description, category, number, technologies, demo, github, image, award, dates, highlights, overview }: ProjectCardProps) {
   return (
     <article className={`project-card ${award ? 'project-card-awarded' : ''}`}>
       {award && <div className="award-banner">
@@ -25,9 +30,9 @@ export default function ProjectCard({ title, description, category, number, tech
       <div className="project-visual">
         {image ? <img src={image} alt={`${title} project preview`} loading="lazy" decoding="async" /> : (
           <div className="project-overview">
-            <p className="eyebrow">HenHacks 2026</p>
-            <p className="project-overview-title">TrailMate<span>Campus discovery,<br />personalized.</span></p>
-            <dl><div><dt>Rank activities</dt><dd>Snowflake SQL + weighted scoring</dd></div><div><dt>Generate routes</dt><dd>Natural-language prompts + Gemini</dd></div></dl>
+            {overview && <p className="eyebrow">{overview.event}</p>}
+            <p className="project-overview-title">{title}{overview && <span>{overview.tagline}</span>}</p>
+            {overview && <dl>{overview.features.map(feature => <div key={feature.title}><dt>{feature.title}</dt><dd>{feature.detail}</dd></div>)}</dl>}
           </div>
         )}
       </div>
@@ -38,10 +43,10 @@ export default function ProjectCard({ title, description, category, number, tech
         <p className="project-description">{description}</p>
         {highlights && <ul className="detail-list project-highlights">{highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>}
         <ul className="tech-tags" aria-label={`${title} technologies`}>{technologies.map(technology => <li key={technology}>{technology}</li>)}</ul>
-        <div className="project-links">
+        {(demo || github) && <div className="project-links">
           {demo && <a href={demo} target="_blank" rel="noreferrer" aria-label={`View ${title} live site`}>Live site <span aria-hidden="true">↗</span></a>}
           {github && <a href={github} target="_blank" rel="noreferrer" aria-label={`View ${title} on GitHub`}>GitHub <span aria-hidden="true">↗</span></a>}
-        </div>
+        </div>}
       </div>
     </article>
   );

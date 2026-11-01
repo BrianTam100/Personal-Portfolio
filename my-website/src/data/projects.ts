@@ -3,17 +3,24 @@ import thread from './thread.jpg';
 
 export const projects = [
   {
-    title: 'TrailMate',
-    category: 'AI / Campus discovery',
-    dates: 'Feb. 2026',
-    description: 'Tell TrailMate what you want to do on campus, and it suggests activities and a route. I built it at HenHacks 2026 using Gemini and Snowflake.',
+    title: 'Litter-ally Trash',
+    category: 'AI / Accessible robotics',
+    dates: 'Oct. 2026',
+    description: 'An AI-powered trash bin on wheels that makes waste disposal more accessible. Built in 36 hours at Cornell BigRed//Hacks, it won Best Hardware Hack and placed in the top 4 of 58 teams.',
     highlights: [
-      'Designed Snowflake SQL aggregations and weighted scoring models to rank activities using real-time user data.',
-      'Built a Node.js backend with modular authentication, routing, and data pipelines deployed on DigitalOcean.',
+      'Developed an OpenAI CLIP ViT-L/14 vision system that distinguishes trash from recyclables in a live video feed and automatically opens the corresponding bin lid.',
+      'Integrated hand-gesture, voice, and keyboard controls with a Raspberry Pi and Arduino-powered Mecanum drive base for omnidirectional steering from phones and laptops.',
     ],
-    technologies: ['HTML/CSS', 'JavaScript', 'Node.js', 'Supabase', 'Snowflake', 'Google Gemini', 'DigitalOcean'],
-    demo: 'https://trailmate.tech/',
-    award: 'Best use of Snowflake API · HenHacks 2026',
+    technologies: ['Python', 'OpenAI CLIP', 'CUDA', 'Raspberry Pi', 'Arduino'],
+    award: 'Best Hardware Hack · Cornell BigRed//Hacks',
+    overview: {
+      event: 'Cornell BigRed//Hacks 2026',
+      tagline: 'Accessible disposal, powered by AI.',
+      features: [
+        { title: 'Sort waste', detail: 'Live computer vision + automatic bin lids' },
+        { title: 'Steer your way', detail: 'Hand gestures, voice, and keyboard controls' },
+      ],
+    },
   },
   {
     title: 'ByteBite',
@@ -33,11 +40,11 @@ export const projects = [
   {
     title: 'The Thread',
     category: 'Open source / Editorial platform',
-    dates: 'Jan. 2025 – Present',
-    description: 'An online student publication I work on through RCOS. Our six-person team is building a place for stories, photos, and campus coverage for RPI’s 6,000+ undergraduates.',
+    dates: 'Jan. 2025 – May 2025',
+    description: 'An editorial platform I helped build through the Rensselaer Center for Open Source. Our six-person team developed a place for stories, photos, and campus coverage designed to serve thousands of undergraduates.',
     highlights: [
       'Implemented core React components backed by MongoDB and AWS S3, optimizing dynamic rendering of high-resolution editorial media and articles.',
-      'Collaborate with a six-person agile team, using peer reviews and automated CI/CD pipelines to maintain code quality and 99.9% uptime for 6,000+ users.',
+      'Collaborated with a six-person agile team, using rigorous peer reviews and automated CI/CD pipelines to maintain code quality and uptime.',
     ],
     technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'AWS S3', 'Axios', 'Vercel'],
     github: 'https://github.com/thread-rpi',

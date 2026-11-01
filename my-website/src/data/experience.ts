@@ -5,9 +5,9 @@ export const experience = [
     location: 'New York, NY',
     dates: 'May 2026 – Aug. 2026',
     highlights: [
-      'Built an audit platform that processes 1M+ database events a day. Automated webhook creation, saved 10+ hours of reconciliation each week; deduplication and Row-Level Security kept records consistent and access controlled.',
-      'Replaced a legacy document designer with a React application for 500+ employees. Added overflow handling, live annotations, and parallel rendering, with an estimated 5×+ speedup when generating multiple documents.',
-      'Automated PDF generation for the design-to-manufacturing workflow. Replaced manual image processing with concurrent batch jobs, saving the team 5+ hours a week.',
+      'Built a changelog platform processing 1M+ database events daily. Event deduplication and strict Row-Level Security saved 5+ hours of manual investigation each week.',
+      'Replaced a legacy document designer with a React application for 500+ employees. Added overflow handling, live annotations, and parallel rendering, with an estimated 5× speedup when generating multiple documents.',
+      'Built an automated PDF and image-processing pipeline that lets designers download thousands of images in seconds. Concurrent batch processing accelerated new clothing design and saved 7+ hours a week.',
     ],
   },
   {
