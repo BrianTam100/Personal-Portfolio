@@ -1,11 +1,3 @@
-// Add portrait.jpg (or .jpeg, .png, .webp, .avif) to src/data to replace the placeholder.
-const portraits = import.meta.glob<string>('../data/portrait.{jpg,jpeg,png,webp,avif}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-});
-const portrait = Object.values(portraits)[0];
-
 interface HeroProps {
   motionPaused: boolean;
   onToggleMotion: () => void;
@@ -23,19 +15,6 @@ export default function Hero({}: HeroProps) {
           <a className="text-link" href={`${import.meta.env.BASE_URL}resume.pdf`} target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <figure className="hero-portrait">
-        <div className="portrait-frame">
-          {portrait ? (
-            <img src={portrait} alt="Brian Tam" width="800" height="1000" fetchPriority="high" />
-          ) : (
-            <div className="portrait-placeholder" role="img" aria-label="Placeholder for Brian Tam’s portrait">
-              <span className="portrait-initials" aria-hidden="true">BT<span>.</span></span>
-              <span className="portrait-placeholder-label">Your photo here</span>
-            </div>
-          )}
-        </div>
-        <figcaption><span>Brian Tam</span><span>Brooklyn, NY</span></figcaption>
-      </figure>
       <div className="hero-bottom"><span>Brooklyn, NY · RPI ’28</span><a href="https://github.com/BrianTam100" target="_blank" rel="noreferrer">Find me on GitHub <span aria-hidden="true">↗</span></a></div>
     </div>
   );

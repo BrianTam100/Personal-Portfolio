@@ -979,42 +979,6 @@ h2 {
 }
 
 
-/* Drop a portrait into src/data; preserve its space while the image loads. */
-.hero-portrait {
-  width: min(100%, 360px);
-  margin: 0;
-  justify-self: center;
-  animation: hero-enter .8s .15s both;
-}
-.portrait-frame {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border: 1px solid #d1dbcb;
-  border-radius: 100px 100px 12px 12px;
-  background: #e9eee4;
-  box-shadow: 12px 12px 0 #eff2eb;
-}
-.portrait-frame img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
-}
-.portrait-placeholder {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-.portrait-initials { font: italic 90px Georgia, serif; letter-spacing: -7px; color: #53634b; }
-.portrait-initials > span { color: #819b60; }
-.portrait-placeholder-label { font-size: 14px; color: #58674f; }
-.hero-portrait figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 24px; font-size: 13px; color: var(--muted); }
-.hero-portrait figcaption > span:first-child { font-weight: 600; color: var(--ink); }
-:root[data-motion="paused"] .hero-portrait { animation: none; }
-@media (max-width: 760px) {
-  .hero-portrait { width: min(100%, 300px); }
-}
+/* Text-only introduction. */
+.hero-layout { grid-template-columns: minmax(0, 1fr); }
+.hero-description { max-width: 720px; }
